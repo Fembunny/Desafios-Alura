@@ -8,7 +8,7 @@ function comprar() {
     } else if (tipo == "superior") {
         comprarSuperior(qtd);
     } else {
-        //comprarInferior(qtd);
+        comprarInferior(qtd);
     }
 }
 
@@ -29,9 +29,21 @@ function comprarSuperior(qtd) {
     let qtdSuperior = parseInt(document.getElementById("qtd-superior").textContent);
 
     if (qtd > qtdSuperior) {
-        alert("Quantidade de ingressos para cadeira superios invalida");
+        alert("Quantidade de ingressos para cadeira superior invalida");
     } else {
         qtdSuperior -= qtd;
         document.getElementById("qtd-superior").textContent = `${qtdSuperior}`;
+    }
+}
+
+// Função que valida e subtrai a quantidade de ingressos da cadeira inferior
+function comprarInferior(qtd) {
+    let qtdInferior = parseInt(document.getElementById("qtd-inferior").textContent);
+
+    if (qtd > qtdInferior) {
+        alert("Quantidade de ingressos para cadeira inferior invalida");
+    } else {
+        qtdInferior -= qtd;
+        document.getElementById("qtd-inferior").textContent = `${qtdInferior}`;
     }
 }
