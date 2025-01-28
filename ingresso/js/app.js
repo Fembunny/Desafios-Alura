@@ -6,19 +6,32 @@ function comprar() {
     if (tipo == "pista") {
         comprarPista(qtd);
     } else if (tipo == "superior") {
-        //comprarSuperior(qtd);
+        comprarSuperior(qtd);
     } else {
         //comprarInferior(qtd);
     }
 }
 
+// Função que valida e subtrai a quantidade de ingressos da pista
 function comprarPista(qtd) {
     let qtdPista = parseInt(document.getElementById("qtd-pista").textContent);
 
     if (qtd > qtdPista) {
-        alert("Quantidade de ingressos invalida");
+        alert("Quantidade de ingressos para pista invalida");
     } else {
         qtdPista -= qtd;
         document.getElementById("qtd-pista").textContent = `${qtdPista}`;
+    }
+}
+
+// Função que valida e subtrai a quantidade de ingressos da cadeira superior
+function comprarSuperior(qtd) {
+    let qtdSuperior = parseInt(document.getElementById("qtd-superior").textContent);
+
+    if (qtd > qtdSuperior) {
+        alert("Quantidade de ingressos para cadeira superios invalida");
+    } else {
+        qtdSuperior -= qtd;
+        document.getElementById("qtd-superior").textContent = `${qtdSuperior}`;
     }
 }
