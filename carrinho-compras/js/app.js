@@ -1,4 +1,5 @@
 let totalItens = 0; 
+limpar();
 
 // Função responsavel por pegar o produto escolhido, a quantidade, o subtotal e adicionar ao carrinho
 function adicionar() {
@@ -21,4 +22,13 @@ function adicionar() {
     valorTotal.textContent = `R$${totalItens}`;
 
     document.getElementById("quantidade").value = 0;
+}
+
+// Função para limpar os campos de quantidade, carrinho e valor total
+function limpar() {
+    document.getElementById("quantidade").value = 0;
+    document.getElementById("lista-produtos").innerHTML = "";
+    document.getElementById("valor-total").textContent = "R$";
+
+    totalItens = 0;
 }
