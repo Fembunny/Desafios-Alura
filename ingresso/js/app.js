@@ -1,19 +1,35 @@
 //Função para pegar a opção escolhida pelo usuario e a quantidade de ingressos
 function comprar() {
     let tipo = document.getElementById("tipo-ingresso").value;
-    console.log(tipo);
     let qtd = parseInt(document.getElementById("qtd").value);
 
-    comprarOpcao(tipo, qtd);
-    /*if (tipo == "pista") {
+    //comprarOpcao(tipo, qtd);
+    
+    if (tipo == "pista") {
         comprarPista(qtd);
     } else if (tipo == "superior") {
         comprarSuperior(qtd);
     } else {
         comprarInferior(qtd);
-    }*/
+    }
 }
+
 /*
+---- É possivel simplificar o codigo abaixo usando uma unica função, exemplo: 
+function comprarOpcao(tipo, qtd) {
+    let qtdOpcao = parseInt(document.getElementById(`qtd-${tipo}`).textContent);
+
+    if (qtd > qtdOpcao || qtd <= 0) {
+        alert(`Quantidade de ingressos para ${tipo} invalida`);
+        document.getElementById("qtd").value = "";
+    } else {
+        qtdOpcao -= qtd;
+        document.getElementById(`qtd-${tipo}`).textContent = `${qtdOpcao}`;
+        document.getElementById("qtd").value = "";
+    }
+}
+*/
+
 // Função que valida e subtrai a quantidade de ingressos da pista
 function comprarPista(qtd) {
     let qtdPista = parseInt(document.getElementById("qtd-pista").textContent);
@@ -47,19 +63,5 @@ function comprarInferior(qtd) {
     } else {
         qtdInferior -= qtd;
         document.getElementById("qtd-inferior").textContent = `${qtdInferior}`;
-    }
-}
-*/
-// É possivel simplificar o codigo usando uma unica função, exemplo: 
-function comprarOpcao(tipo, qtd) {
-    let qtdOpcao = parseInt(document.getElementById(`qtd-${tipo}`).textContent);
-
-    if (qtd > qtdOpcao || qtd <= 0) {
-        alert(`Quantidade de ingressos para ${tipo} invalida`);
-        document.getElementById("qtd").value = "";
-    } else {
-        qtdOpcao -= qtd;
-        document.getElementById(`qtd-${tipo}`).textContent = `${qtdOpcao}`;
-        document.getElementById("qtd").value = "";
     }
 }
