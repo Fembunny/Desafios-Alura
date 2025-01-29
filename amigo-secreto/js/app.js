@@ -2,12 +2,17 @@ let amigos = [];
 
 // Função para adicionar o nome informado no elemento "lista-amigos"
 function adicionar() {
-    let amigo = document.getElementById("nome-amigo");
+    let amigo = document.getElementById("nome-amigo").value;
     let lista = document.getElementById("lista-amigos");
 
-    if(amigo.value != "") {
-        amigos.push(amigo.value); 
-        lista.textContent = amigos;
+    if(amigo != "") {
+        if (!amigos.includes(amigo)) {
+            amigos.push(amigo); 
+            lista.textContent = amigos;
+        } else {
+            alert("Nome ja informado");
+        }
+
     } else {
         alert("Campo vazio");
     }
@@ -16,7 +21,7 @@ function adicionar() {
 }
 
 function sortear() {
-    if (amigos != "") {
+    if (amigos != "" && amigos.length >= 4) {
         embaralha(amigos);
         let sorteio = document.getElementById("lista-sorteio");
 
@@ -28,7 +33,7 @@ function sortear() {
             }
         }
     } else {
-        alert("Lista de amigos vazia");
+        alert("Número de participantes invalido");
     }
 }
 
@@ -40,4 +45,11 @@ function embaralha(lista) {
         // atribuição via destructuring
         [lista [indice - 1], lista[indiceAleatorio]] = [lista[indiceAleatorio], lista[indice - 1]];
     }
+}
+
+function reiniciar () {
+    amigos = [];
+    document.getElementById("nome-amigo").value = "";
+    document.getElementById("lista-amigos").textContent = "";
+    document.getElementById("lista-sorteio").textContent = "";
 }
